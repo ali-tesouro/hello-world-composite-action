@@ -21,6 +21,7 @@ runs:
       uses: 'google-github-actions/setup-gcloud@v0'
     
     - name: Configure GCloud for Docker
+      shell: bash
       run: gcloud auth configure-docker -q
     
     - name: Set up QEMU

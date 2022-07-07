@@ -18,17 +18,22 @@ runs:
         key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
         restore-keys: |
           ${{ runner.os }}-nuget-
+  
     - name: Restore
       working-directory: ./src
+      shell: bash
       run: >-
         dotnet nuget add source --username USERNAME --password ${{ inputs.gh-packages-token }} --store-password-in-clear-text --name github https://nuget.pkg.github.com/tesourohq/index.json
         && dotnet restore ./Tesouro.Payments.Service.CardProcessing.sln
+
     - name: Build
       working-directory: ./src
+      shell: bash
       run: dotnet build --no-restore -c Release ./Tesouro.Payments.Service.CardProcessing.sln
 
     - name: Test
       working-directory: ./src
+      shell: bash
       run: dotnet test --no-build -c Release -l 'trx;LogFileName=${{ runner.temp }}/results.trx' ./Tesouro.Payments.Service.CardProcessing.sln
 
     - name: Test Report
