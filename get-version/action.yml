@@ -1,9 +1,15 @@
 name: 'Get Version'
 description: 'Determine Version'
 outputs:
-  SemVer: ${{ steps.gitversion.outputs.SemVer }}
-  legacySemVerPadded: ${{ steps.gitversion.outputs.legacySemVerPadded }}
-  nuGetVersionV2: ${{ steps.gitversion.outputs.nuGetVersionV2 }}
+  SemVer:
+    description: "Semantic Version"
+    value: ${{ steps.gitversion.outputs.SemVer }}
+  legacySemVerPadded:
+    description: "Semantic Version Padded"
+    value: ${{ steps.gitversion.outputs.legacySemVerPadded }}
+  nuGetVersionV2:
+    description: "Nuget Version"
+    value: ${{ steps.gitversion.outputs.nuGetVersionV2 }}
 runs:
   using: "composite"
   steps:
