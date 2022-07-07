@@ -1,6 +1,5 @@
 name: 'Get Version'
 description: 'Determine Version'
-runs-on: ubuntu-latest
 outputs:
   SemVer: ${{ steps.gitversion.outputs.SemVer }}
   legacySemVerPadded: ${{ steps.gitversion.outputs.legacySemVerPadded }}
