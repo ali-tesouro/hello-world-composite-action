@@ -1,6 +1,6 @@
 name: 'Build and Test'
 description: 'Build, Restore, and Test'
-inputs: 
+inputs:
   sem-ver:
     description: Version of the package
     required: true

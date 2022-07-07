@@ -1,5 +1,9 @@
 name: 'Build and Test'
 description: 'Build, Restore, and Test'
+inputs:
+  gh-packages-token:
+    description: Github packages token
+    required: true
 runs:
   using: "composite"
   steps:
@@ -17,7 +21,7 @@ runs:
     - name: Restore
       working-directory: ./src
       run: >-
-        dotnet nuget add source --username USERNAME --password ${{ secrets.GH_PACKAGES_TOKEN }} --store-password-in-clear-text --name github https://nuget.pkg.github.com/tesourohq/index.json
+        dotnet nuget add source --username USERNAME --password ${{ inputs.gh-packages-token }} --store-password-in-clear-text --name github https://nuget.pkg.github.com/tesourohq/index.json
         && dotnet restore ./Tesouro.Payments.Service.CardProcessing.sln
     - name: Build
       working-directory: ./src
