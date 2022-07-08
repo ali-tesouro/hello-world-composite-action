@@ -1,11 +1,11 @@
-name: 'Build and Test'
-description: 'Build, Restore, and Test'
+name: Build and Test
+description: Build, Restore, and Test
 inputs:
   gh-packages-token:
     description: Github packages token
     required: true
 runs:
-  using: "composite"
+  using: composite
   steps:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1

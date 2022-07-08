@@ -1,5 +1,5 @@
-name: 'Build and Test'
-description: 'Build, Restore, and Test'
+name: Build docker images
+description: Build docker images
 inputs:
   sem-ver:
     description: Version of the package
@@ -8,7 +8,7 @@ inputs:
     description: Github packages token
     required: true
 runs:
-  using: "composite"
+  using: composite
   steps:
     - name: Authorize with GCloud
       uses: 'google-github-actions/auth@v0'
